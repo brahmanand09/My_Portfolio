@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brahmanand Mourya Portfolio</title>
+    <link href="images/icon.jpg" rel="icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-query.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1 class="logo"><span style="color: #ff004f; font-size: 40px;">B</span>rahma.</h1>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#servises">Services</a></li>
+                    <li><a href="#mywork">My Work</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Frontend Developer</p>
+                <h1>Hi, I'm <span style="color: #ff004f;">Brahmanand</span><br>Mourya from India.</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <--------------------------------About------------------ -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/educ.jpg" alt="Brahmanand Mourya">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am a self motivated, hard working person and good team leader. I am also a team player. I can
+                        handle the pressure and my
+                        teams properly. I excite every time to
+                        learn new skill. Along with this love for animals and learning is constant.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="education">
+                        <ul>
+                            <li><span>09/2021 - Current</span><br>B-Tech(Computer Science & Engineering)<br>ABES
+                                Institute
+                                of Technology<br> Ghaziabad, Uttar Pradesh, India</li>
+                            <li><span>07/2019 - 06/2021</span><br>Diploma(Computer Science & Engineering)<br>Jawaharlal
+                                Nehru
+                                Polytechnic<br>Sitapur, Uttar Pradesh, India</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents " id="experience">
+                        <ul>
+                            <li><span>Web Editor(11/2020 - 12/2020)</span><br>Arcane Programming Infotech Pvt.
+                                Ltd.<br>Lucknow, Uttar Pradesh, India</li>
+                            <li> I have created a website (frontend) using HTML, CSS.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents " id="skills">
+                        <ul>
+                            <li>HTML, CSS, BootStrap, JavaScript</li>
+                            <li>SQL, JsonPowerDB</li>
+                            <li>JAVA</li>
+                            <li>Data Structure and Algorithm</li>
+                            <li>Object Oriented Programming(OOP's)</li>
+                            <li>Database Management System(DBMS)</li>
+                            <li>Operating System</li>
+                            <li>Problem Solving</li>
+                            <li>Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <------------------------Services-------------------------- -->
+    <div id="servises">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>I am a Frontend Developer. </p>
+                    <!-- <a href="#">Learn More</a> -->
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis veniam consequatur neque illo
+                        minus incidunt dolore vero, dicta doloribus ab facere sint nostrum, reprehenderit corrupti
+                        asperiores ex eum quo praesentium!</p>
+                    <!-- <a href="#">Learn More</a> -->
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis veniam consequatur neque illo
+                        minus incidunt dolore vero, dicta doloribus ab facere sint nostrum, reprehenderit corrupti
+                        asperiores ex eum quo praesentium!</p>
+                    <!-- <a href="#">Learn More</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------------My Work------------------------ -->
+
+    <div id="mywork">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/work-1.png">
+                    <div class="layer">
+                        <h2>Portfolio Website</h2>
+                        <p>This is my official portfolio website to showes all
+                            Details and work experience. I have used HTML, CSS and JavaScript.
+                            This is fully responsive website. </p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-2.jpg">
+                    <div class="layer">
+                        <h2>Visualizing and Forecasting Stocks</h2>
+                        <p>In this project, We are detecting previous time data and
+                            suggest our own clients.
+                            We have used Back Propagation Algorithm.
+                            This project based on Artificial Neural Network(ANN).
+                            In this project, I have used Dash Library. This project is helpfull for the clients.</p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-3.jpg">
+                    <div class="layer">
+                        <h2>Crime Alert NGO</h2>
+                        <p>I have used HTML and CSS .
+                            We help to some person in emergency time. According to this project, we provide related to
+                            Food, Clothes, Financial support according to budget etc.</p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- <a href="#" class="btn">See more</a> -->
+        </div>
+    </div>
+
+    <!-- ------------------------------Contact--------------->
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>mouryab30@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>+91 9616460598</p>
+                    <div class="social-icon">
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/Brahmanand_9616"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/brahma_090203/"><i
+                                class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/brahmanand09/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/brahmanand09"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <a href="images/BRAHMANAND's Resume (2).pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Enter Your Name" required>
+                        <input type="email" name="Email" placeholder="Enter Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Write Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copyright&copy Brahma made with <i class="fa-solid fa-heart"></i> by mouryab30</p>
+        </div>
+    </div>
+
+
+
+    <!-- ----------------------------------JavaScript Code-------------------------- -->
+    <script src="https://kit.fontawesome.com/800bc701cc.js" crossorigin="anonymous"></script>
+
+
+    <!-- -----------------------------About code in JS------------------ -->
+    <script>
+        let tablinks = document.getElementsByClassName("tab-links");
+        let tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <!-- ----------------------------------SideBar code for mobile-------------------- -->
+    <script>
+        let sidemeu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemeu.style.right = "0";
+        }
+
+        function closemenu() {
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+
+
+    <!-- -----------------------------Google Sheet Link Code-------------------- -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzOgxoqcHX6IiKM2quMAkug5GeSraUdb3a8h6kfL-C9ftlKCN7UfTTIzCJ_DFdAf1TZ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully !"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
