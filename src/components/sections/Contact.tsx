@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   FaFacebook,
@@ -66,11 +67,24 @@ export function Contact() {
   return (
     <section id="contact" className="section-block-alt scene-3d">
       <div className="container-main">
-        <span className="section-eyebrow">Contact</span>
-        <h2 className="section-title text-3d">Let&apos;s Work Together</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="section-eyebrow">Contact</span>
+          <h2 className="section-title text-3d mt-3">Let&apos;s Work Together</h2>
+        </motion.div>
 
         <div className="mt-14 flex flex-wrap justify-between gap-10">
-          <div className="w-full md:w-[38%]">
+          <motion.div
+            className="w-full md:w-[38%]"
+            initial={{ opacity: 0, x: -52 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          >
             <p className="text-muted">
               Have a project in mind or want to collaborate? Reach out — I&apos;d love to
               hear from you.
@@ -122,9 +136,15 @@ export function Contact() {
             <Link href={siteConfig.cvPath} download className="btn-primary mt-10">
               Download CV
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="w-full md:w-[55%]">
+          <motion.div
+            className="w-full md:w-[55%]"
+            initial={{ opacity: 0, x: 52 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Tilt3D maxTilt={6}>
               <div className="contact-card card-depth">
               <form onSubmit={handleSubmit} className="w-full">
@@ -169,7 +189,7 @@ export function Contact() {
               )}
               </div>
             </Tilt3D>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { FaArrowDown, FaCircle } from "react-icons/fa6";
 import { projects, siteConfig } from "@/data/portfolio";
 import { Hero3DShapes } from "./Hero3DShapes";
 import { HeroCodeAnimation } from "./HeroCodeAnimation";
+import { HeroTechOrbit } from "./HeroTechOrbit";
 import { Tilt3D } from "@/components/ui/Tilt3D";
 
 const heroTech = ["React.js", "Next.js", "Node.js", "MongoDB", "TypeScript"];
@@ -17,11 +18,14 @@ export function Hero() {
   return (
     <section id="home" className="hero-section scene-3d relative isolate min-h-screen overflow-hidden pt-24">
       <Hero3DShapes />
+      <HeroTechOrbit />
       <div className="hero-orb hero-orb-1 pointer-events-none" aria-hidden />
       <div className="hero-orb hero-orb-2 pointer-events-none" aria-hidden />
       <div className="hero-orb hero-orb-3 pointer-events-none" aria-hidden />
+      <div className="hero-orb hero-orb-4 pointer-events-none" aria-hidden />
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
       <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden />
+      <div className="hero-aurora pointer-events-none absolute inset-0" aria-hidden />
 
       <div className="container-main relative z-10 flex min-h-[calc(100vh-6rem)] flex-col justify-center pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
