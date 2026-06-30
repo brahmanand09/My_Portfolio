@@ -57,9 +57,11 @@ export const experience: ExperienceItem[] = [
     company: "Sarrthi IAS (Physics Wallah)",
     location: "Noida, India",
     highlights: [
-      "Built scalable backend systems using Next.js, Node.js, Supabase, Cloudflare, Pabbly, and Zoho CRM for 2+ production applications.",
+      "Built scalable backend systems using Next.js, Node.js, Supabase, Cloudflare, and Zoho CRM for 2+ production applications, saving ~₹50k–₹60k/month by replacing Pabbly with direct CRM integrations across all projects.",
+      "Developed a Zoom Dashboard tracking 4000+ video sessions and 40+ mentors with real-time updates, interactive graphs, in-app video playback, and session tracking (e.g., solo vs. candidate-present sessions).",
+      "Engineered an automated slot booking system used by 1000+ students and managing ~15+ meetings daily; enables mentor-created slots, enforces a 2-booking lifetime limit, auto-generates unique meeting links, and supports test copy uploads.",
       "Led end-to-end development of a task system for 30+ users, improving operational visibility.",
-      "Developed a real-time financial dashboard and RBAC-enabled sales tracking system used by 100+ users.",
+      "Developed a real-time financial dashboard and RBAC-enabled sales tracking system featuring interactive team-wise and transaction-wise graphs powered by AWS Lambda functions, used by 100+ users.",
     ],
   },
   {
@@ -189,7 +191,7 @@ export const projects: Project[] = [
     subtitle: "EJS, React.js, Node.js, Express.js, MongoDB, REST APIs · 2024–2026",
     description:
       "Full-stack platform handling 2.5+ lakh medicine records with billing, stock management, invoice generation, returns, and due payment tracking. Includes Material & Spare Requisition workflows with approval processes and MongoDB transaction-based data consistency.",
-    image: "/images/work-2.jpg",
+    image: "/images/inventory_dashboard.png",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "EJS"],
   },
   {
@@ -197,15 +199,39 @@ export const projects: Project[] = [
     subtitle: "MERN Stack, TypeScript, Socket.io, RabbitMQ, Redis, Cloudinary, Docker · 2026",
     description:
       "Microservice-based real-time chat with instant messaging and media sharing via Socket.io and RabbitMQ. Uses Redis caching, Cloudinary storage, and Docker for scalable, performance-optimized deployments.",
-    image: "/images/work-3.jpg",
+    image: "/images/chat_application.png",
     tech: ["MERN", "TypeScript", "Socket.io", "RabbitMQ", "Redis", "Docker"],
+  },
+  {
+    title: "Zoom Dashboard",
+    subtitle: "Next.js, Node.js, Supabase, Zoho CRM, Zoom API · 2026",
+    description:
+      "Real-time analytics dashboard tracking 4000+ video sessions and 40+ mentors. Integrates live-session video streaming and playback directly on the dashboard, monitors mentor logs, tracks session time, and auto-detects solo sessions versus candidate-present sessions.",
+    image: "/images/zoom_dashboard.png",
+    tech: ["Next.js", "Node.js", "Supabase", "Zoom API"],
+  },
+  {
+    title: "Finance & Incentive Portal",
+    subtitle: "Next.js, AWS Lambda, Zoho CRM, Supabase · 2026",
+    description:
+      "Real-time financial and incentive tracking dashboard used by 100+ active users. Displays interactive graphs for team-wise performance, transaction-wise details, and integrates AWS Lambda functions to handle high-frequency calculations and secure RBAC access.",
+    image: "/images/finance_incentive_portal.png",
+    tech: ["Next.js", "AWS Lambda", "Zoho CRM", "Supabase"],
+  },
+  {
+    title: "Slot Booking System",
+    subtitle: "Next.js, Supabase, Zoom API · 2026",
+    description:
+      "Slot scheduling calendar utilized by 1000+ active students and managing ~15+ daily meetings. Mentors create slots, while students can book a maximum of 2 slots in their lifetime. Features automated unique Zoom meeting link generation and a custom test copy file upload interface during slot booking.",
+    image: "/images/slot_booking_system.png",
+    tech: ["Next.js", "Supabase", "Zoom API"],
   },
   {
     title: "YouTube Clone",
     subtitle: "HTML, CSS, JavaScript and React.js",
     description:
       "Developed a user-friendly and responsive interface that closely matches the look and feel of YouTube. Gained hands-on experience in front-end development and API integration to replicate core features.",
-    image: "/images/youtube..jpeg",
+    image: "/images/youtube_clone.png",
     liveUrl: "https://youtubelite.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/YouTube_Lite",
     tech: ["React", "JavaScript", "CSS"],
@@ -215,7 +241,7 @@ export const projects: Project[] = [
     subtitle: "HTML, CSS, JavaScript and React.js",
     description:
       "Interactive platform for real-time weather data retrieval with a responsive UI. Fetches data from a third-party API and dynamically updates conditions on screen.",
-    image: "/images/weather.jpeg",
+    image: "/images/weather_app.png",
     liveUrl: "https://weathercheckerapp.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/Weather_Checker",
     tech: ["React", "JavaScript", "API"],
@@ -225,7 +251,7 @@ export const projects: Project[] = [
     subtitle: "HTML, CSS and JavaScript",
     description:
       "User-friendly code editor with syntax highlighting, customizable color schemes, and cross-browser compatibility for writing and copying code.",
-    image: "/images/code editor.jpeg",
+    image: "/images/code_editor.png",
     liveUrl: "https://livecodeeditor.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/Code_Editor",
     tech: ["JavaScript", "HTML", "CSS"],
@@ -235,7 +261,7 @@ export const projects: Project[] = [
     subtitle: "Next.js, TypeScript and Tailwind CSS",
     description:
       "Official portfolio showcasing skills, projects, and experience. Fully responsive and built with Next.js, TypeScript, and modern CSS.",
-    image: "/images/port.jpeg",
+    image: "/images/portfolio_site.png",
     liveUrl: "https://brahmanand09.github.io/My_Portfolio/",
     githubUrl: "https://github.com/brahmanand09/My_Portfolio",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -244,14 +270,14 @@ export const projects: Project[] = [
     title: "Visualizing and Forecasting Stocks",
     description:
       "Stock forecasting project using Back Propagation and Artificial Neural Networks. Built with Dash to help clients analyze historical data and trends.",
-    image: "/images/work-2.jpg",
+    image: "/images/stock_forecasting.png",
     tech: ["Python", "Dash", "ANN"],
   },
   {
     title: "Crime Alert NGO",
     description:
       "NGO platform to support people in emergencies with food, clothing, and financial assistance based on available budget and needs.",
-    image: "/images/work-3.jpg",
+    image: "/images/ngo_platform.png",
     tech: ["HTML", "CSS"],
   },
 ];
