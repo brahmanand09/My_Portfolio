@@ -55,7 +55,7 @@ export const experience: ExperienceItem[] = [
     period: "Apr 2026 – Present",
     role: "SDE-I (Full-Stack Developer)",
     company: "Sarrthi IAS (Physics Wallah)",
-    location: "Noida, India",
+    location: "Noida, India (On Site)",
     highlights: [
       "Built scalable backend systems using Next.js, Node.js, Supabase, Cloudflare, and Zoho CRM for 2+ production applications, saving ~₹50k–₹60k/month by replacing Pabbly with direct CRM integrations across all projects.",
       "Developed a Zoom Dashboard tracking 4000+ video sessions and 40+ mentors with real-time updates, interactive graphs, in-app video playback, and session tracking (e.g., solo vs. candidate-present sessions).",
@@ -68,7 +68,7 @@ export const experience: ExperienceItem[] = [
     period: "Jun 2024 – Apr 2026",
     role: "SDE-I (Full-Stack Developer)",
     company: "LogiqueCode LLP",
-    location: "Greater Noida, India",
+    location: "Greater Noida, India (On Site)",
     highlights: [
       "Engineered scalable backend systems using React.js, Node.js, Express.js, and MongoDB supporting 3+ production applications with RBAC and secure REST APIs.",
       "Built and deployed enterprise-grade applications handling 1000+ inventory records and 50+ daily transactions.",
@@ -80,7 +80,7 @@ export const experience: ExperienceItem[] = [
     period: "Feb 2024 – May 2024",
     role: "Software Developer Intern",
     company: "LogiqueCode LLP",
-    location: "Greater Noida, India",
+    location: "Greater Noida, India (Hybride)",
     highlights: [
       "Developed and maintained REST APIs using React.js, Node.js, Express, MongoDB, and MySQL.",
       "Implemented JWT-based authentication and role-based authorization while reducing login API response time by ~400ms through query optimization and efficient indexing.",
@@ -90,7 +90,7 @@ export const experience: ExperienceItem[] = [
     period: "Jan 2023 – Mar 2023",
     role: "Engineering Intern",
     company: "Conceptext Pvt. Ltd.",
-    location: "Pune, India",
+    location: "Pune, India (Remote)",
     highlights: [
       "Contributed to e-commerce product development by building reusable React.js components.",
       "Collaborated with cross-functional teams to deliver clean, maintainable, and efficient solutions in a fast-paced environment.",
@@ -98,9 +98,9 @@ export const experience: ExperienceItem[] = [
   },
   {
     period: "Nov 2020 – Dec 2020",
-    role: "Frontend Developer Intern",
+    role: "Frontend Developer Intern (Training)",
     company: "Arcane Programming Infotech Pvt. Ltd.",
-    location: "Lucknow, Uttar Pradesh, India",
+    location: "Lucknow, Uttar Pradesh, India (On Site)",
     highlights: [
       "Created websites as a front-end developer using HTML and CSS.",
       "Learned how to write reusable code and build responsive websites.",
