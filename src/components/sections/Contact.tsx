@@ -65,7 +65,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-block-alt scene-3d">
+    <section id="contact" className="section-block-alt scene-3d py-12 md:py-16">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -77,7 +77,7 @@ export function Contact() {
           <h2 className="section-title text-3d mt-3">Let&apos;s Work Together</h2>
         </motion.div>
 
-        <div className="mt-14 flex flex-wrap justify-between gap-10">
+        <div className="mt-8 flex flex-wrap justify-between gap-8">
           <motion.div
             className="w-full md:w-[38%]"
             initial={{ opacity: 0, x: -52 }}
@@ -90,7 +90,7 @@ export function Contact() {
               hear from you.
             </p>
 
-            <div className="mt-8 space-y-5">
+            <div className="mt-6 space-y-4">
               <p className="flex items-center gap-4">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-lg text-primary-light">
                   <FaPaperPlane aria-hidden />
@@ -115,7 +115,7 @@ export function Contact() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               {socialLinks.map((link) => {
                 const Icon = socialIconMap[link.icon];
                 return (
@@ -133,7 +133,7 @@ export function Contact() {
               })}
             </div>
 
-            <Link href={siteConfig.cvPath} download className="btn-primary mt-10">
+            <Link href={siteConfig.cvPath} download className="btn-primary mt-6">
               Download CV
             </Link>
           </motion.div>
@@ -153,26 +153,26 @@ export function Contact() {
                   name="Name"
                   placeholder="Your Name"
                   required
-                  className="form-input my-3"
+                  className="form-input my-2"
                 />
                 <input
                   type="email"
                   name="Email"
                   placeholder="Your Email"
                   required
-                  className="form-input my-3"
+                  className="form-input my-2"
                 />
                 <textarea
                   name="Message"
-                  rows={6}
+                  rows={4}
                   placeholder="Your Message"
                   required
-                  className="form-input my-3 resize-y"
+                  className="form-input my-2 resize-y"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="btn-primary mt-4 w-full cursor-pointer justify-center disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="btn-primary mt-3 w-full cursor-pointer justify-center disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   {status === "loading" ? "Sending..." : "Send Message"}
                 </button>

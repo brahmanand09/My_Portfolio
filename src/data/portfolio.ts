@@ -60,7 +60,8 @@ export const experience: ExperienceItem[] = [
       "Built scalable backend systems using Next.js, Node.js, Supabase, Cloudflare, and Zoho CRM for 2+ production applications, saving ~₹50k–₹60k/month by replacing Pabbly with direct CRM integrations across all projects.",
       "Engineered a high-performance Zoho CRM & Exotel Call Analytics Dashboard tracking 10,000+ daily call logs and counselor metrics with sub-200ms response times, using Next.js 15, PostgreSQL indexed views, and cryptographic fingerprint deduplication.",
       "Developed a Zoom Dashboard tracking 4000+ video sessions and 40+ mentors with real-time updates, interactive graphs, in-app video playback, and session tracking (e.g., solo vs. candidate-present sessions).",
-      "Engineered an automated slot booking system used by 1000+ students and managing ~15+ meetings daily; enables mentor-created slots, enforces a 2-booking lifetime limit, auto-generates unique meeting links, and supports test copy uploads.",
+      "Engineered an automated slot booking system used by 1000+ students and managing ~15+ daily meetings; enables mentor-created slots, enforces a 2-booking lifetime limit, auto-generates unique meeting links, and supports test copy uploads.",
+      "Developed an enterprise-grade Sales & Mentorship Management Portal on AWS (DynamoDB, Cognito, SES) and React.js, automating batch allocations, CSV onboarding, and tracking agent performance with Recharts analytics.",
       "Developed the Evaluation Portal Dashboard, an automated serverless video archiving pipeline using Cloudflare Workers, R2 storage, D1 database, and Zoom Webhooks, bypassing Zoom cloud storage limits for lifetime video streaming.",
       "Led end-to-end development of a task system for 30+ users, improving operational visibility.",
       "Developed a real-time financial dashboard and RBAC-enabled sales tracking system featuring interactive team-wise and transaction-wise graphs powered by AWS Lambda functions, used by 100+ users.",
@@ -237,6 +238,14 @@ export const projects: Project[] = [
       "Slot scheduling calendar utilized by 1000+ active students and managing ~15+ daily meetings. Mentors create slots, while students can book a maximum of 2 slots in their lifetime. Features automated unique Zoom meeting link generation and a custom test copy file upload interface during slot booking.",
     image: "/images/slot_booking_system.png",
     tech: ["Next.js", "Supabase", "Zoom API"],
+  },
+  {
+    title: "Sales & Mentorship Management Portal",
+    subtitle: "React.js, Node.js, Express.js, AWS DynamoDB, AWS Cognito, AWS SES · 2026",
+    description:
+      "A full-stack enterprise portal built for Sarrthi IAS to manage student queries, automate mentorship batch allocations using AWS DynamoDB, and track sales performance with real-time analytics. Features role-based login via AWS Cognito, automated transaction emails via AWS SES, Google Sheets synchronization, and bulk student CSV onboarding.",
+    image: "/images/sales_mentorship_portal.png",
+    tech: ["React.js", "Node.js", "Express.js", "AWS DynamoDB", "AWS Cognito", "AWS SES", "Tailwind CSS", "Recharts"],
   },
   {
     title: "Evaluation Portal Dashboard",
