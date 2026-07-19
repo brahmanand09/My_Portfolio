@@ -58,8 +58,10 @@ export const experience: ExperienceItem[] = [
     location: "Noida, India (On Site)",
     highlights: [
       "Built scalable backend systems using Next.js, Node.js, Supabase, Cloudflare, and Zoho CRM for 2+ production applications, saving ~₹50k–₹60k/month by replacing Pabbly with direct CRM integrations across all projects.",
+      "Engineered a high-performance Zoho CRM & Exotel Call Analytics Dashboard tracking 10,000+ daily call logs and counselor metrics with sub-200ms response times, using Next.js 15, PostgreSQL indexed views, and cryptographic fingerprint deduplication.",
       "Developed a Zoom Dashboard tracking 4000+ video sessions and 40+ mentors with real-time updates, interactive graphs, in-app video playback, and session tracking (e.g., solo vs. candidate-present sessions).",
       "Engineered an automated slot booking system used by 1000+ students and managing ~15+ meetings daily; enables mentor-created slots, enforces a 2-booking lifetime limit, auto-generates unique meeting links, and supports test copy uploads.",
+      "Developed the Evaluation Portal Dashboard, an automated serverless video archiving pipeline using Cloudflare Workers, R2 storage, D1 database, and Zoom Webhooks, bypassing Zoom cloud storage limits for lifetime video streaming.",
       "Led end-to-end development of a task system for 30+ users, improving operational visibility.",
       "Developed a real-time financial dashboard and RBAC-enabled sales tracking system featuring interactive team-wise and transaction-wise graphs powered by AWS Lambda functions, used by 100+ users.",
     ],
@@ -74,6 +76,7 @@ export const experience: ExperienceItem[] = [
       "Built and deployed enterprise-grade applications handling 1000+ inventory records and 50+ daily transactions.",
       "Improved API performance by 30–40% through MongoDB query optimization, indexing, and pagination.",
       "Integrated Docker and Jenkins-based CI/CD pipelines for automated builds and deployments.",
+      "Structured modular backend architecture and deployed streamlined builds on AWS environments.",
     ],
   },
   {
@@ -92,7 +95,7 @@ export const experience: ExperienceItem[] = [
     company: "Conceptext Pvt. Ltd.",
     location: "Pune, India (Remote)",
     highlights: [
-      "Contributed to e-commerce product development by building reusable React.js components.",
+      "Contributed to ecommerce product development by building reusable and efficient frontend components using JavaScript and React.js.",
       "Collaborated with cross-functional teams to deliver clean, maintainable, and efficient solutions in a fast-paced environment.",
     ],
   },
@@ -149,6 +152,7 @@ export const skillCategories: SkillCategory[] = [
       "WinSCP",
       "Pabbly",
       "Zoho CRM",
+      "Exotel (Cloud Telephony)",
     ],
   },
   {
@@ -186,6 +190,14 @@ export const services: Service[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: "Zoho CRM & Exotel Call Analytics Dashboard",
+    subtitle: "Next.js 15, Supabase, Zoho CRM, Exotel REST API · 2026",
+    description:
+      "A high-performance call analytics dashboard replacing a legacy Google Sheets system to track and analyze 10,000+ daily call logs and counselor metrics with sub-200ms response times. Features cryptographic deduplication (fingerprint hashing) with database-level constraints for zero-duplicate logs, dual Zoho & Exotel webhook integration, custom database indexed views, and automated call duration bucketing.",
+    image: "/images/call_analytics_dashboard.png",
+    tech: ["Next.js", "Supabase", "Zoho CRM", "Exotel API", "Tailwind CSS"],
+  },
   {
     title: "Inventory & Healthcare Management System",
     subtitle: "EJS, React.js, Node.js, Express.js, MongoDB, REST APIs · 2024–2026",
@@ -225,6 +237,14 @@ export const projects: Project[] = [
       "Slot scheduling calendar utilized by 1000+ active students and managing ~15+ daily meetings. Mentors create slots, while students can book a maximum of 2 slots in their lifetime. Features automated unique Zoom meeting link generation and a custom test copy file upload interface during slot booking.",
     image: "/images/slot_booking_system.png",
     tech: ["Next.js", "Supabase", "Zoom API"],
+  },
+  {
+    title: "Evaluation Portal Dashboard",
+    subtitle: "React.js, Cloudflare Workers, Cloudflare D1, Cloudflare R2, Zoom API · 2026",
+    description:
+      "A secure, serverless video archiving and management system that automatically syncs Zoom cloud recordings to Cloudflare R2 storage and a Cloudflare D1 (SQLite) database via real-time webhooks and automated cron jobs. Features a responsive React dashboard for searching, filtering by Host Name, playing streamed videos directly, and downloading MP4 recordings without Zoom's default expiration limits.",
+    image: "/images/evaluation_portal_dashboard.png",
+    tech: ["React.js", "Cloudflare Workers", "Cloudflare D1", "Cloudflare R2", "Zoom API"],
   },
   {
     title: "YouTube Clone",

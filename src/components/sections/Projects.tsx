@@ -10,7 +10,7 @@ import { Tilt3D } from "@/components/ui/Tilt3D";
 import { projects } from "@/data/portfolio";
 import type { Project } from "@/types";
 
-const INITIAL_VISIBLE = 6;
+const INITIAL_VISIBLE = 10;
 const MAX_TECH_TAGS = 3;
 
 const EASE = [0.22, 1, 0.36, 1] as const;
