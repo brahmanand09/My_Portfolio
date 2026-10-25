@@ -2,7 +2,7 @@
 
 A modern, professional portfolio built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and the **App Router**.
 
-Live: [My_Portfolio](https://brahmanand-portfolio.vercel.app/)
+Live: [Brahmanand Mourya — Portfolio](https://brahmanand-portfolio.vercel.app/)
 
 ## Features
 
