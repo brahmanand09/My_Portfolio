@@ -29,6 +29,7 @@ export interface Project {
   subtitle?: string;
   description: string;
   image: string;
+  images?: string[];
   liveUrl?: string;
   githubUrl?: string;
   tech: string[];
@@ -46,3 +47,22 @@ export interface SkillCategory {
 }
 
 export type AboutTab = "education" | "experience" | "skills";
+
+export interface AchievementItem {
+  id: string;
+  title: string;
+  impact: string;
+  description: string;
+  image: string;
+  images?: string[];
+  tech: string[];
+}
+
+export interface CompanyAchievements {
+  id: string;
+  name: string;
+  role: string;
+  duration: string;
+  logoText: string;
+  achievements: AchievementItem[];
+}

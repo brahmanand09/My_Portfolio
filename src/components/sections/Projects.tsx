@@ -142,7 +142,7 @@ export function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="work" className="section-block scene-3d">
+    <section id="work" className="section-block scene-3d pb-6 md:pb-8">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

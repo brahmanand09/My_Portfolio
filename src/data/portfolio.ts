@@ -1,4 +1,5 @@
 import type {
+  CompanyAchievements,
   EducationItem,
   ExperienceItem,
   NavLink,
@@ -29,6 +30,7 @@ export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "My Work", href: "#work" },
+  { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -336,5 +338,76 @@ export const socialLinks: SocialLink[] = [
     label: "GitHub",
     href: "https://github.com/brahmanand09",
     icon: "github",
+  },
+];
+
+export const companyAchievements: CompanyAchievements[] = [
+  {
+    id: "sarrthi-ias",
+    name: "Sarrthi IAS",
+    role: "Full-Stack Developer",
+    duration: "2024 - Present",
+    logoText: "SI",
+    achievements: [
+      {
+        id: "star-performer-award",
+        title: "Star Performer Award — Sarrthi IAS",
+        impact: "🏆 Highest Employee Performance Honor",
+        description:
+          "Awarded the prestigious 'Star Performer Award' at Sarrthi IAS by the Director and executive leadership. Recognized for driving core full-stack platform engineering, developing the real-time CRM & Exotel Call Analytics Dashboard, automating student booking workflows, and eliminating recurring third-party middleware costs.",
+        image: "/images/sarrthi_star_performer_ceremony.jpg",
+        images: [
+          "/images/sarrthi_star_performer_ceremony.jpg",
+          "/images/sarrthi_star_performer_award.jpg",
+          "/images/sarrthi_star_performer_trophy.jpg",
+        ],
+        tech: [
+          "Star Performer Award",
+          "Director Recognition",
+          "Full-Stack Engineering",
+          "CRM & Telephony",
+          "High Impact",
+        ],
+      },
+    ],
+  },
+  {
+    id: "logiquecode",
+    name: "LogiqueCode",
+    role: "Software Engineer",
+    duration: "Previous Experience",
+    logoText: "LC",
+    achievements: [
+      {
+        id: "employee-of-the-month",
+        title: "Employee of the Month (2x Consecutive Winner)",
+        impact: "🎖️ Consecutive Winner: Jan 2025 & Feb 2025",
+        description:
+          "Honored with the 'Employee of the Month' award for two consecutive months (January 2025 and February 2025) for exceptional contributions to serverless backend engineering with AWS Lambda & DynamoDB, meeting critical client milestones, and maintaining superior code quality.",
+        image: "/images/logiquecode_employee_of_month.jpg",
+        tech: [
+          "Employee of the Month",
+          "Jan 2025",
+          "Feb 2025",
+          "AWS Cloud",
+          "Full-Stack",
+        ],
+      },
+      {
+        id: "best-idea-suggestion",
+        title: "Best Idea Suggestion of the Month (2x Winner)",
+        impact: "💡 Innovation Award: Dec 2024 & March 2025",
+        description:
+          "Recognized twice (December 2024 and March 2025) for pitching and successfully implementing high-impact system ideas, including proactive database caching strategies, query latency reductions, and automated deployment error-monitoring.",
+        image: "/images/logiquecode_best_idea_award.jpg",
+        tech: [
+          "Best Idea Award",
+          "Dec 2024",
+          "March 2025",
+          "System Architecture",
+          "Optimization",
+        ],
+      },
+    ],
   },
 ];
