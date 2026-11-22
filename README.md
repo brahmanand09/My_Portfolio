@@ -1,6 +1,6 @@
 # Brahmanand Mourya — Portfolio
 
-A modern, professional portfolio built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and the **App Router**.
+A modern, professional portfolio built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and the **App Router**.
 
 Live: [Brahmanand Mourya — Portfolio](https://brahmanand-portfolio.vercel.app/)
 
@@ -19,7 +19,7 @@ Live: [Brahmanand Mourya — Portfolio](https://brahmanand-portfolio.vercel.app/
 
 ### Prerequisites
 
-- Node.js 18.18 or later
+- Node.js 20.9 or later
 - npm
 
 ### Installation
@@ -72,7 +72,8 @@ src/
 └── types/
     └── index.ts         # TypeScript interfaces
 public/
-└── images/              # Static assets
+├── docs/                # Resume (PDF)
+└── images/              # Project & award images (WebP)
 ```
 
 ## Deployment

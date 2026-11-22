@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -9,6 +9,8 @@ import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 import { Tilt3D } from "@/components/ui/Tilt3D";
 import { projects } from "@/data/portfolio";
 import type { Project } from "@/types";
+import { useIsClient } from "@/hooks/useIsClient";
+import { useModalBehavior } from "@/hooks/useModalBehavior";
 
 const INITIAL_VISIBLE = 10;
 const MAX_TECH_TAGS = 3;
@@ -27,6 +29,14 @@ function ProjectCard({
   const visibleTech = project.tech.slice(0, MAX_TECH_TAGS);
   const extraTechCount = project.tech.length - MAX_TECH_TAGS;
 
+  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.target !== event.currentTarget) return;
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onClick();
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, scale: 0.94 }}
@@ -38,13 +48,18 @@ function ProjectCard({
       <Tilt3D maxTilt={9} scale={1.015}>
         <article
           onClick={onClick}
-          className="project-card group flex h-full cursor-pointer flex-col"
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          role="button"
+          aria-haspopup="dialog"
+          aria-label={`Open details for ${project.title}`}
+          className="project-card group flex h-full cursor-pointer flex-col rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <div className="project-card-inner card-depth flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface-elevated">
             <div className="relative h-40 shrink-0 overflow-hidden sm:h-44">
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={`Screenshot of ${project.title}`}
                 fill
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -53,7 +68,7 @@ function ProjectCard({
               <div className="project-shine pointer-events-none absolute inset-0" aria-hidden />
 
               {(project.liveUrl || project.githubUrl) && (
-                <div className="absolute right-3 bottom-3 flex translate-y-2 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="absolute right-3 bottom-3 flex translate-y-2 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
                   {project.liveUrl && (
                     <Link
                       href={project.liveUrl}
@@ -121,25 +136,12 @@ function ProjectCard({
 export function Projects() {
   const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const mounted = useIsClient();
+  const dialogRef = useRef<HTMLDivElement>(null);
   const visibleProjects = showAll ? projects : projects.slice(0, INITIAL_VISIBLE);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Prevent scroll when modal is open
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedProject]);
+  const closeModal = useCallback(() => setSelectedProject(null), []);
+  useModalBehavior(selectedProject !== null, closeModal, dialogRef);
 
   return (
     <section id="work" className="section-block scene-3d pb-6 md:pb-8">
@@ -159,7 +161,6 @@ export function Projects() {
         </motion.div>
 
         <div
-          ref={gridRef}
           className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {visibleProjects.map((project, index) => (
@@ -202,12 +203,18 @@ export function Projects() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onClick={() => setSelectedProject(null)}
+                  onClick={closeModal}
                   className="absolute inset-0 bg-bg/85 backdrop-blur-md"
+                  aria-hidden
                 />
 
                 {/* Modal content container */}
                 <motion.div
+                  ref={dialogRef}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="project-modal-title"
+                  tabIndex={-1}
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -217,7 +224,7 @@ export function Projects() {
                   {/* Close Button */}
                   <button
                     type="button"
-                    onClick={() => setSelectedProject(null)}
+                    onClick={closeModal}
                     className="absolute top-4 right-4 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-bg/80 text-foreground transition-all hover:bg-surface hover:text-primary-light shadow-md"
                     aria-label="Close details"
                   >
@@ -239,7 +246,7 @@ export function Projects() {
                     <div className="relative aspect-[16/10] w-full shrink-0 bg-black/20">
                       <Image
                         src={selectedProject.image}
-                        alt={selectedProject.title}
+                        alt={`Screenshot of ${selectedProject.title}`}
                         fill
                         priority
                         className="object-cover object-top"
@@ -250,7 +257,10 @@ export function Projects() {
 
                     {/* Details text panel */}
                     <div className="p-6 sm:p-8">
-                      <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                      <h3
+                        id="project-modal-title"
+                        className="text-xl font-bold text-foreground sm:text-2xl"
+                      >
                         {selectedProject.title}
                       </h3>
                       {selectedProject.subtitle && (

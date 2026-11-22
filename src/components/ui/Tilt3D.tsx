@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import { useRef, type PointerEvent, type ReactNode } from "react";
 
 interface Tilt3DProps {
   children: ReactNode;
@@ -19,7 +19,9 @@ export function Tilt3D({
 }: Tilt3DProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  function handleMove(event: MouseEvent<HTMLDivElement>) {
+  function handleMove(event: PointerEvent<HTMLDivElement>) {
+    // Tilt is a hover effect — skip touch / pen so mobile scrolling stays smooth.
+    if (event.pointerType !== "mouse") return;
     const element = ref.current;
     if (!element) return;
 
@@ -53,8 +55,8 @@ export function Tilt3D({
     <div
       ref={ref}
       className={`tilt-3d relative ${className}`}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
+      onPointerMove={handleMove}
+      onPointerLeave={handleLeave}
     >
       {glare && (
         <div

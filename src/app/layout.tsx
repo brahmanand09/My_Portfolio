@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { siteConfig } from "@/data/portfolio";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -10,6 +11,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Brahmanand Mourya | Full Stack Developer",
     template: "%s | Brahmanand Mourya",
@@ -31,6 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
+    url: "/",
     title: "Brahmanand Mourya | Full Stack Developer",
     description:
       "Full Stack Developer with 2+ years of experience in React.js, Next.js, Node.js, MongoDB, and Supabase.",
@@ -46,9 +52,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  icons: {
-    icon: "/images/educ.jpg",
   },
 };
 

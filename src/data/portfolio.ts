@@ -15,14 +15,14 @@ export const siteConfig = {
   title: "Brahmanand Mourya | Full Stack Developer Portfolio",
   description:
     "Full Stack Developer with 2+ years of experience in React.js, Next.js, Node.js, Express.js, MongoDB, and Supabase — building scalable web applications, REST APIs, and performance-optimized systems.",
-  url: "https://brahmanand09.github.io/My_Portfolio",
+  url: "https://brahmanand-portfolio.vercel.app",
   email: "brahmanandmoury@gmail.com",
   phone: "+91-9616460598",
   role: "Full Stack Developer",
   location: "India",
   experienceYears: "2+",
   coreStack: "React.js · Next.js · Node.js",
-  cvPath: "/images/Brahmanand_Mourya.pdf",
+  cvPath: "/docs/Brahmanand_Mourya.pdf",
 };
 
 export const navLinks: NavLink[] = [
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     subtitle: "Next.js 15, Supabase, Zoho CRM, Exotel REST API · 2026",
     description:
       "A high-performance call analytics dashboard replacing a legacy Google Sheets system to track and analyze 10,000+ daily call logs and counselor metrics with sub-200ms response times. Features cryptographic deduplication (fingerprint hashing) with database-level constraints for zero-duplicate logs, dual Zoho & Exotel webhook integration, custom database indexed views, and automated call duration bucketing.",
-    image: "/images/call_analytics_dashboard.png",
+    image: "/images/call_analytics_dashboard.webp",
     tech: ["Next.js", "Supabase", "Zoho CRM", "Exotel API", "Tailwind CSS"],
   },
   {
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     subtitle: "EJS, React.js, Node.js, Express.js, MongoDB, REST APIs · 2024–2026",
     description:
       "Full-stack platform handling 2.5+ lakh medicine records with billing, stock management, invoice generation, returns, and due payment tracking. Includes Material & Spare Requisition workflows with approval processes and MongoDB transaction-based data consistency.",
-    image: "/images/inventory_dashboard.png",
+    image: "/images/inventory_dashboard.webp",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "EJS"],
   },
   {
@@ -214,7 +214,7 @@ export const projects: Project[] = [
     subtitle: "MERN Stack, TypeScript, Socket.io, RabbitMQ, Redis, Cloudinary, Docker · 2026",
     description:
       "Microservice-based real-time chat with instant messaging and media sharing via Socket.io and RabbitMQ. Uses Redis caching, Cloudinary storage, and Docker for scalable, performance-optimized deployments.",
-    image: "/images/chat_application.png",
+    image: "/images/chat_application.webp",
     tech: ["MERN", "TypeScript", "Socket.io", "RabbitMQ", "Redis", "Docker"],
   },
   {
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     subtitle: "Next.js, Node.js, Supabase, Zoho CRM, Zoom API · 2026",
     description:
       "Real-time analytics dashboard tracking 4000+ video sessions and 40+ mentors. Integrates live-session video streaming and playback directly on the dashboard, monitors mentor logs, tracks session time, and auto-detects solo sessions versus candidate-present sessions.",
-    image: "/images/zoom_dashboard.png",
+    image: "/images/zoom_dashboard.webp",
     tech: ["Next.js", "Node.js", "Supabase", "Zoom API"],
   },
   {
@@ -230,7 +230,7 @@ export const projects: Project[] = [
     subtitle: "Next.js, AWS Lambda, Zoho CRM, Supabase · 2026",
     description:
       "Real-time financial and incentive tracking dashboard used by 100+ active users. Displays interactive graphs for team-wise performance, transaction-wise details, and integrates AWS Lambda functions to handle high-frequency calculations and secure RBAC access.",
-    image: "/images/finance_incentive_portal.png",
+    image: "/images/finance_incentive_portal.webp",
     tech: ["Next.js", "AWS Lambda", "Zoho CRM", "Supabase"],
   },
   {
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     subtitle: "Next.js, Supabase, Zoom API · 2026",
     description:
       "Slot scheduling calendar utilized by 1000+ active students and managing ~15+ daily meetings. Mentors create slots, while students can book a maximum of 2 slots in their lifetime. Features automated unique Zoom meeting link generation and a custom test copy file upload interface during slot booking.",
-    image: "/images/slot_booking_system.png",
+    image: "/images/slot_booking_system.webp",
     tech: ["Next.js", "Supabase", "Zoom API"],
   },
   {
@@ -246,7 +246,7 @@ export const projects: Project[] = [
     subtitle: "React.js, Node.js, Express.js, AWS DynamoDB, AWS Cognito, AWS SES · 2026",
     description:
       "A full-stack enterprise portal built for Sarrthi IAS to manage student queries, automate mentorship batch allocations using AWS DynamoDB, and track sales performance with real-time analytics. Features role-based login via AWS Cognito, automated transaction emails via AWS SES, Google Sheets synchronization, and bulk student CSV onboarding.",
-    image: "/images/sales_mentorship_portal.png",
+    image: "/images/sales_mentorship_portal.webp",
     tech: ["React.js", "Node.js", "Express.js", "AWS DynamoDB", "AWS Cognito", "AWS SES", "Tailwind CSS", "Recharts"],
   },
   {
@@ -254,7 +254,7 @@ export const projects: Project[] = [
     subtitle: "React.js, Cloudflare Workers, Cloudflare D1, Cloudflare R2, Zoom API · 2026",
     description:
       "A secure, serverless video archiving and management system that automatically syncs Zoom cloud recordings to Cloudflare R2 storage and a Cloudflare D1 (SQLite) database via real-time webhooks and automated cron jobs. Features a responsive React dashboard for searching, filtering by Host Name, playing streamed videos directly, and downloading MP4 recordings without Zoom's default expiration limits.",
-    image: "/images/evaluation_portal_dashboard.png",
+    image: "/images/evaluation_portal_dashboard.webp",
     tech: ["React.js", "Cloudflare Workers", "Cloudflare D1", "Cloudflare R2", "Zoom API"],
   },
   {
@@ -262,7 +262,7 @@ export const projects: Project[] = [
     subtitle: "HTML, CSS, JavaScript and React.js",
     description:
       "Developed a user-friendly and responsive interface that closely matches the look and feel of YouTube. Gained hands-on experience in front-end development and API integration to replicate core features.",
-    image: "/images/youtube_clone.png",
+    image: "/images/youtube_clone.webp",
     liveUrl: "https://youtubelite.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/YouTube_Lite",
     tech: ["React", "JavaScript", "CSS"],
@@ -272,7 +272,7 @@ export const projects: Project[] = [
     subtitle: "HTML, CSS, JavaScript and React.js",
     description:
       "Interactive platform for real-time weather data retrieval with a responsive UI. Fetches data from a third-party API and dynamically updates conditions on screen.",
-    image: "/images/weather_app.png",
+    image: "/images/weather_app.webp",
     liveUrl: "https://weathercheckerapp.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/Weather_Checker",
     tech: ["React", "JavaScript", "API"],
@@ -282,7 +282,7 @@ export const projects: Project[] = [
     subtitle: "HTML, CSS and JavaScript",
     description:
       "User-friendly code editor with syntax highlighting, customizable color schemes, and cross-browser compatibility for writing and copying code.",
-    image: "/images/code_editor.png",
+    image: "/images/code_editor.webp",
     liveUrl: "https://livecodeeditor.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/Code_Editor",
     tech: ["JavaScript", "HTML", "CSS"],
@@ -292,8 +292,8 @@ export const projects: Project[] = [
     subtitle: "Next.js, TypeScript and Tailwind CSS",
     description:
       "Official portfolio showcasing skills, projects, and experience. Fully responsive and built with Next.js, TypeScript, and modern CSS.",
-    image: "/images/portfolio_site.png",
-    liveUrl: "https://brahmanand09.github.io/My_Portfolio/",
+    image: "/images/portfolio_site.webp",
+    liveUrl: "https://brahmanand-portfolio.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/My_Portfolio",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
@@ -301,33 +301,23 @@ export const projects: Project[] = [
     title: "Visualizing and Forecasting Stocks",
     description:
       "Stock forecasting project using Back Propagation and Artificial Neural Networks. Built with Dash to help clients analyze historical data and trends.",
-    image: "/images/stock_forecasting.png",
+    image: "/images/stock_forecasting.webp",
     tech: ["Python", "Dash", "ANN"],
   },
   {
     title: "Crime Alert NGO",
     description:
       "NGO platform to support people in emergencies with food, clothing, and financial assistance based on available budget and needs.",
-    image: "/images/ngo_platform.png",
+    image: "/images/ngo_platform.webp",
     tech: ["HTML", "CSS"],
   },
 ];
 
 export const socialLinks: SocialLink[] = [
   {
-    label: "Facebook",
-    href: "https://www.facebook.com/",
-    icon: "facebook",
-  },
-  {
     label: "Twitter",
     href: "https://twitter.com/Brahmanand_9616",
     icon: "twitter",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/",
-    icon: "instagram",
   },
   {
     label: "LinkedIn",
@@ -355,11 +345,11 @@ export const companyAchievements: CompanyAchievements[] = [
         impact: "🏆 Highest Employee Performance Honor",
         description:
           "Awarded the prestigious 'Star Performer Award' at Sarrthi IAS by the Director and executive leadership. Recognized for driving core full-stack platform engineering, developing the real-time CRM & Exotel Call Analytics Dashboard, automating student booking workflows, and eliminating recurring third-party middleware costs.",
-        image: "/images/sarrthi_star_performer_ceremony.jpg",
+        image: "/images/sarrthi_star_performer_ceremony.webp",
         images: [
-          "/images/sarrthi_star_performer_ceremony.jpg",
-          "/images/sarrthi_star_performer_award.jpg",
-          "/images/sarrthi_star_performer_trophy.jpg",
+          "/images/sarrthi_star_performer_ceremony.webp",
+          "/images/sarrthi_star_performer_award.webp",
+          "/images/sarrthi_star_performer_trophy.webp",
         ],
         tech: [
           "Star Performer Award",
@@ -384,7 +374,7 @@ export const companyAchievements: CompanyAchievements[] = [
         impact: "🎖️ Consecutive Winner: Jan 2025 & Feb 2025",
         description:
           "Honored with the 'Employee of the Month' award for two consecutive months (January 2025 and February 2025) for exceptional contributions to serverless backend engineering with AWS Lambda & DynamoDB, meeting critical client milestones, and maintaining superior code quality.",
-        image: "/images/logiquecode_employee_of_month.jpg",
+        image: "/images/logiquecode_employee_of_month.webp",
         tech: [
           "Employee of the Month",
           "Jan 2025",
@@ -399,7 +389,7 @@ export const companyAchievements: CompanyAchievements[] = [
         impact: "💡 Innovation Award: Dec 2024 & March 2025",
         description:
           "Recognized twice (December 2024 and March 2025) for pitching and successfully implementing high-impact system ideas, including proactive database caching strategies, query latency reductions, and automated deployment error-monitoring.",
-        image: "/images/logiquecode_best_idea_award.jpg",
+        image: "/images/logiquecode_best_idea_award.webp",
         tech: [
           "Best Idea Award",
           "Dec 2024",

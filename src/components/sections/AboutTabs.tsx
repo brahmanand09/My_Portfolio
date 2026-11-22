@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import type { AboutTab, EducationItem, ExperienceItem, SkillCategory } from "@/types";
 
 interface AboutTabsProps {
@@ -17,22 +17,52 @@ const tabs: { id: AboutTab; label: string }[] = [
 
 export function AboutTabs({ education, experience, skillCategories }: AboutTabsProps) {
   const [activeTab, setActiveTab] = useState<AboutTab>("education");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next: number | null = null;
+    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+    if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = tabs.length - 1;
+    if (next === null) return;
+    event.preventDefault();
+    setActiveTab(tabs[next].id);
+    tabRefs.current[next]?.focus();
+  }
 
   return (
     <>
-      <div className="mt-8 mb-8 flex flex-wrap gap-3">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            className={`tab-pill ${activeTab === tab.id ? "active" : ""}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="mt-8 mb-8 flex flex-wrap gap-3" role="tablist" aria-label="About me">
+        {tabs.map((tab, index) => {
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              type="button"
+              role="tab"
+              id={`about-tab-${tab.id}`}
+              aria-selected={isActive}
+              aria-controls={`about-panel-${tab.id}`}
+              tabIndex={isActive ? 0 : -1}
+              className={`tab-pill ${isActive ? "active" : ""}`}
+              onClick={() => setActiveTab(tab.id)}
+              onKeyDown={(event) => handleTabKeyDown(event, index)}
+            >
+              {tab.label}
+            </button>
+          );
+        })}
       </div>
 
+      <div
+        role="tabpanel"
+        id={`about-panel-${activeTab}`}
+        aria-labelledby={`about-tab-${activeTab}`}
+      >
       {activeTab === "education" && (
         <ul className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {education.map((item) => (
@@ -118,6 +148,7 @@ export function AboutTabs({ education, experience, skillCategories }: AboutTabsP
           ))}
         </div>
       )}
+      </div>
     </>
   );
 }

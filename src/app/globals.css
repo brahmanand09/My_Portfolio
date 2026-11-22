@@ -863,6 +863,29 @@
     will-change: transform, opacity;
   }
 
+  /* ── Lighter hero on small screens (saves GPU / battery on phones) ── */
+  @media (max-width: 767px) {
+    .hero-3d-scene,
+    .hero-orb-3,
+    .hero-orb-4,
+    .hero-aurora {
+      display: none;
+    }
+
+    .hero-orb,
+    .hero-content-3d,
+    .code-editor {
+      animation: none;
+    }
+  }
+
+  /* Hover-only tilt makes no sense on touch screens */
+  @media (hover: none) {
+    .tilt-3d {
+      transform: none !important;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .project-grid .project-card {
       opacity: 1;

@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { companyAchievements } from "@/data/portfolio";
 import type { AchievementItem } from "@/types";
 import { Tilt3D } from "@/components/ui/Tilt3D";
+import { useIsClient } from "@/hooks/useIsClient";
+import { useModalBehavior } from "@/hooks/useModalBehavior";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -18,23 +20,8 @@ export function Achievements() {
     useState<AchievementItem | null>(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const [cardImageIndex, setCardImageIndex] = useState<Record<string, number>>({});
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Prevent scroll when modal is open
-  useEffect(() => {
-    if (selectedAchievement) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedAchievement]);
+  const mounted = useIsClient();
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const activeCompany =
     companyAchievements.find((c) => c.id === activeCompanyId) ??
@@ -62,6 +49,16 @@ export function Achievements() {
       prev === currentModalImages.length - 1 ? 0 : prev + 1
     );
   };
+
+  const closeModal = useCallback(() => setSelectedAchievement(null), []);
+
+  useModalBehavior(selectedAchievement !== null, closeModal, dialogRef, {
+    onKeyDown: (event) => {
+      if (currentModalImages.length < 2) return;
+      if (event.key === "ArrowLeft") handlePrevModalImage();
+      if (event.key === "ArrowRight") handleNextModalImage();
+    },
+  });
 
   if (!activeCompany) return null;
 
@@ -91,6 +88,7 @@ export function Achievements() {
               <button
                 key={company.id}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => setActiveCompanyId(company.id)}
                 className={`flex items-center gap-3 px-5 py-3 rounded-xl font-medium text-sm transition-all duration-300 border cursor-pointer ${
                   isActive
@@ -167,7 +165,7 @@ export function Achievements() {
                     <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-black/40">
                       <Image
                         src={currentImg}
-                        alt={item.title}
+                        alt={`${item.title} — photo ${currentImgIdx + 1}`}
                         fill
                         className="object-cover object-center transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                         sizes="(max-width: 768px) 100vw, 650px"
@@ -185,6 +183,8 @@ export function Achievements() {
                         <button
                           type="button"
                           onClick={() => openModal(item, currentImgIdx)}
+                          aria-haspopup="dialog"
+                          aria-label={`Expand photos for ${item.title}`}
                           className="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-md transition-all hover:bg-black"
                         >
                           🔍 Expand
@@ -205,13 +205,15 @@ export function Achievements() {
                                   [item.id]: idx,
                                 }));
                               }}
+                              aria-label={`Show photo ${idx + 1} of ${item.images?.length}`}
+                              aria-pressed={currentImgIdx === idx}
                               className={`h-8 w-8 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
                                 currentImgIdx === idx
                                   ? "border-amber-400 scale-110 shadow-md"
                                   : "border-white/40 opacity-75 hover:opacity-100"
                               }`}
                             >
-                              <Image src={thumb} alt="thumbnail" width={32} height={32} className="h-full w-full object-cover" />
+                              <Image src={thumb} alt="" width={32} height={32} className="h-full w-full object-cover" />
                             </button>
                           ))}
                         </div>
@@ -265,12 +267,18 @@ export function Achievements() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onClick={() => setSelectedAchievement(null)}
+                  onClick={closeModal}
                   className="absolute inset-0 bg-black/90 backdrop-blur-md"
+                  aria-hidden
                 />
 
                 {/* Modal Container */}
                 <motion.div
+                  ref={dialogRef}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="achievement-modal-title"
+                  tabIndex={-1}
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -280,7 +288,7 @@ export function Achievements() {
                   {/* Close button */}
                   <button
                     type="button"
-                    onClick={() => setSelectedAchievement(null)}
+                    onClick={closeModal}
                     className="absolute top-4 right-4 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-black/70 text-white transition-all hover:bg-black hover:text-primary-light shadow-md"
                     aria-label="Close details"
                   >
@@ -305,7 +313,7 @@ export function Achievements() {
                     <div className="relative h-[55vh] min-h-[300px] max-h-[560px] w-full shrink-0 bg-black/80 flex items-center justify-center p-2">
                       <Image
                         src={currentModalImages[modalImageIndex] ?? selectedAchievement.image}
-                        alt={selectedAchievement.title}
+                        alt={`${selectedAchievement.title} — photo ${modalImageIndex + 1}`}
                         fill
                         priority
                         className="object-contain"
@@ -343,13 +351,15 @@ export function Achievements() {
                             key={img}
                             type="button"
                             onClick={() => setModalImageIndex(idx)}
+                            aria-label={`Show photo ${idx + 1} of ${currentModalImages.length}`}
+                            aria-pressed={modalImageIndex === idx}
                             className={`relative h-12 w-16 overflow-hidden rounded-md border-2 transition-all cursor-pointer ${
                               modalImageIndex === idx
                                 ? "border-amber-400 scale-105"
                                 : "border-transparent opacity-60 hover:opacity-100"
                             }`}
                           >
-                            <Image src={img} alt="thumb" width={64} height={48} className="h-full w-full object-cover" />
+                            <Image src={img} alt="" width={64} height={48} className="h-full w-full object-cover" />
                           </button>
                         ))}
                       </div>
@@ -359,7 +369,10 @@ export function Achievements() {
                       <span className="inline-block rounded-md bg-amber-500/90 px-3 py-1 text-xs font-bold text-white shadow">
                         {selectedAchievement.impact}
                       </span>
-                      <h3 className="mt-3 text-xl font-bold text-foreground sm:text-2xl">
+                      <h3
+                        id="achievement-modal-title"
+                        className="mt-3 text-xl font-bold text-foreground sm:text-2xl"
+                      >
                         {selectedAchievement.title}
                       </h3>
                       <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -28,13 +28,23 @@ export function Contact() {
     "idle",
   );
   const [message, setMessage] = useState("");
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+    };
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Capture the form now — React clears event.currentTarget once the handler yields.
+    const form = event.currentTarget;
+    if (resetTimer.current) clearTimeout(resetTimer.current);
     setStatus("loading");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
 
     try {
       const response = await fetch("/api/contact", {
@@ -42,17 +52,20 @@ export function Contact() {
         body: formData,
       });
 
-      const data = (await response.json()) as { message?: string; error?: string };
+      const data = (await response.json().catch(() => ({}))) as {
+        message?: string;
+        error?: string;
+      };
 
       if (!response.ok) {
         throw new Error(data.error ?? "Failed to send message");
       }
 
+      form.reset();
       setStatus("success");
       setMessage(data.message ?? "Message sent successfully!");
-      event.currentTarget.reset();
 
-      setTimeout(() => {
+      resetTimer.current = setTimeout(() => {
         setMessage("");
         setStatus("idle");
       }, 5000);
@@ -127,7 +140,7 @@ export function Contact() {
                     aria-label={link.label}
                     className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-xl text-muted no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary/10 hover:text-accent"
                   >
-                    <Icon />
+                    <Icon aria-hidden />
                   </Link>
                 );
               })}
@@ -148,27 +161,55 @@ export function Contact() {
             <Tilt3D maxTilt={6}>
               <div className="contact-card card-depth">
               <form onSubmit={handleSubmit} className="w-full">
+                <label htmlFor="contact-name" className="sr-only">
+                  Your name
+                </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="Name"
                   placeholder="Your Name"
+                  autoComplete="name"
+                  maxLength={100}
                   required
                   className="form-input my-2"
                 />
+                <label htmlFor="contact-email" className="sr-only">
+                  Your email
+                </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="Email"
                   placeholder="Your Email"
+                  autoComplete="email"
+                  maxLength={254}
                   required
                   className="form-input my-2"
                 />
+                <label htmlFor="contact-message" className="sr-only">
+                  Your message
+                </label>
                 <textarea
+                  id="contact-message"
                   name="Message"
                   rows={4}
                   placeholder="Your Message"
+                  maxLength={5000}
                   required
                   className="form-input my-2 resize-y"
                 />
+                {/* Honeypot: hidden from people, bots tend to fill it in. */}
+                <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <button
                   type="submit"
                   disabled={status === "loading"}
@@ -182,7 +223,7 @@ export function Contact() {
                   className={`mt-4 text-sm ${
                     status === "error" ? "text-error" : "text-success"
                   }`}
-                  role="status"
+                  role={status === "error" ? "alert" : "status"}
                 >
                   {message}
                 </p>
