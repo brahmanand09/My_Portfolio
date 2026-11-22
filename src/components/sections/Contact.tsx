@@ -78,7 +78,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-block-alt scene-3d py-12 md:py-16">
+    <section id="contact" className="section-block-alt scene-3d pt-10 pb-12 md:pt-12 md:pb-16">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -90,9 +90,9 @@ export function Contact() {
           <h2 className="section-title text-3d mt-3">Let&apos;s Work Together</h2>
         </motion.div>
 
-        <div className="mt-8 flex flex-wrap justify-between gap-8">
+        <div className="mt-8 grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8">
           <motion.div
-            className="w-full md:w-[38%]"
+            className="contact-card card-depth flex h-full flex-col"
             initial={{ opacity: 0, x: -52 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -146,20 +146,22 @@ export function Contact() {
               })}
             </div>
 
-            <Link href={siteConfig.cvPath} download className="btn-primary mt-6">
-              Download CV
-            </Link>
+            <div className="mt-auto pt-6">
+              <Link href={siteConfig.cvPath} download className="btn-primary">
+                Download CV
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
-            className="w-full md:w-[55%]"
+            className="h-full"
             initial={{ opacity: 0, x: 52 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Tilt3D maxTilt={6}>
-              <div className="contact-card card-depth">
+            <Tilt3D maxTilt={6} className="h-full">
+              <div className="contact-card card-depth h-full">
               <form onSubmit={handleSubmit} className="w-full">
                 <label htmlFor="contact-name" className="sr-only">
                   Your name

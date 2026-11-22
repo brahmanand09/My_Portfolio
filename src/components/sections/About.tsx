@@ -12,7 +12,7 @@ export function About() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.15}>
-          <p className="mt-6 w-full max-w-3xl text-base leading-relaxed text-muted md:text-lg">
+          <p className="mt-6 w-full text-base leading-relaxed text-muted md:text-lg">
             {aboutBio}
           </p>
         </ScrollReveal>

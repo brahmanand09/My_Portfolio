@@ -10,13 +10,13 @@ interface AboutTabsProps {
 }
 
 const tabs: { id: AboutTab; label: string }[] = [
-  { id: "education", label: "Education" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
+  { id: "education", label: "Education" },
 ];
 
 export function AboutTabs({ education, experience, skillCategories }: AboutTabsProps) {
-  const [activeTab, setActiveTab] = useState<AboutTab>("education");
+  const [activeTab, setActiveTab] = useState<AboutTab>("experience");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {

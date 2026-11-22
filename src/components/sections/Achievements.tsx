@@ -75,7 +75,7 @@ export function Achievements() {
         >
           <span className="section-eyebrow">Honors & Impact</span>
           <h2 className="section-title text-3d mt-3">Company Achievements & Awards</h2>
-          <p className="mt-4 max-w-2xl text-muted">
+          <p className="mt-4 text-muted">
             Official performance honors, consecutive employee awards, and high-impact engineering milestones delivered across companies.
           </p>
         </motion.div>
@@ -139,7 +139,7 @@ export function Achievements() {
         <div
           className={`mt-8 grid gap-6 ${
             activeCompany.achievements.length === 1
-              ? "grid-cols-1 max-w-2xl mx-auto"
+              ? "grid-cols-1"
               : "grid-cols-1 md:grid-cols-2"
           }`}
         >
@@ -150,6 +150,8 @@ export function Achievements() {
               hasMultipleImages && item.images
                 ? item.images[currentImgIdx]
                 : item.image;
+            // A lone card spans the full width, so lay it out side-by-side on desktop.
+            const isWide = activeCompany.achievements.length === 1;
 
             return (
               <motion.div
@@ -160,15 +162,23 @@ export function Achievements() {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
               >
                 <Tilt3D className="h-full">
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-amber-500/35 bg-gradient-to-b from-surface-elevated to-surface transition-all duration-300 hover:border-amber-400/70 hover:shadow-2xl hover:shadow-amber-500/10">
+                  <div
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-amber-500/35 bg-gradient-to-b from-surface-elevated to-surface transition-all duration-300 hover:border-amber-400/70 hover:shadow-2xl hover:shadow-amber-500/10 ${
+                      isWide ? "lg:flex-row" : ""
+                    }`}
+                  >
                     {/* Image container */}
-                    <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-black/40">
+                    <div
+                      className={`relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-black/40 ${
+                        isWide ? "lg:w-1/2" : ""
+                      }`}
+                    >
                       <Image
                         src={currentImg}
                         alt={`${item.title} — photo ${currentImgIdx + 1}`}
                         fill
                         className="object-cover object-center transition-transform duration-500 group-hover:scale-105 cursor-pointer"
-                        sizes="(max-width: 768px) 100vw, 650px"
+                        sizes="(max-width: 768px) 100vw, 720px"
                         onClick={() => openModal(item, currentImgIdx)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-surface-elevated/95 via-black/20 to-transparent pointer-events-none" />
@@ -228,7 +238,11 @@ export function Achievements() {
                     </div>
 
                     {/* Card Content */}
-                    <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <div
+                      className={`flex flex-1 flex-col p-5 sm:p-6 ${
+                        isWide ? "lg:justify-center lg:p-8" : ""
+                      }`}
+                    >
                       <h4 className="text-lg font-bold text-foreground transition-colors group-hover:text-primary-light">
                         {item.title}
                       </h4>

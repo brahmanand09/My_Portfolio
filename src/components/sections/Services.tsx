@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaCode, FaMobileScreen, FaServer } from "react-icons/fa6";
+import { FaCloud, FaCode, FaMobileScreen, FaServer } from "react-icons/fa6";
 import { services } from "@/data/portfolio";
 import { Tilt3D } from "@/components/ui/Tilt3D";
 import type { Service } from "@/types";
@@ -13,6 +13,7 @@ const iconMap = {
   layout: FaCode,
   mobile: FaMobileScreen,
   server: FaServer,
+  cloud: FaCloud,
 } as const;
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
@@ -53,7 +54,7 @@ export function Services() {
         >
           <span className="section-eyebrow">Services</span>
           <h2 className="section-title text-3d mt-3">What I Do</h2>
-          <p className="mt-4 max-w-2xl text-muted">
+          <p className="mt-4 text-muted">
             Full stack solutions — scalable backends, secure APIs, and polished frontends
             built for production.
           </p>

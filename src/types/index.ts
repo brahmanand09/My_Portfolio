@@ -19,7 +19,7 @@ export interface ExperienceItem {
 }
 
 export interface Service {
-  icon: "code" | "layout" | "mobile" | "server";
+  icon: "code" | "layout" | "mobile" | "server" | "cloud";
   title: string;
   description: string;
 }

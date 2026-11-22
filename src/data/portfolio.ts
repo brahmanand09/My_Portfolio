@@ -55,7 +55,7 @@ export const education: EducationItem[] = [
 export const experience: ExperienceItem[] = [
   {
     period: "Apr 2026 – Present",
-    role: "SDE-I (Full-Stack Developer)",
+    role: "Software Development Engineer - 1 (SDE-1)",
     company: "Sarrthi IAS (Physics Wallah)",
     location: "Noida, India (On Site)",
     highlights: [
@@ -185,7 +185,7 @@ export const services: Service[] = [
       "Secure, scalable APIs with JWT authentication, RBAC, MongoDB/MySQL optimization, and performance-tuned architectures.",
   },
   {
-    icon: "mobile",
+    icon: "cloud",
     title: "Scalable Systems & DevOps",
     description:
       "Docker containerization, Jenkins CI/CD pipelines, Redis caching, and cloud integrations for reliable deployments.",
@@ -193,6 +193,14 @@ export const services: Service[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: "Finance & Incentive Portal",
+    subtitle: "Next.js, AWS Lambda, Zoho CRM, Supabase · 2026",
+    description:
+      "Real-time financial and incentive tracking dashboard used by 100+ active users. Displays interactive graphs for team-wise performance, transaction-wise details, and integrates AWS Lambda functions to handle high-frequency calculations and secure RBAC access.",
+    image: "/images/finance_incentive_portal.webp",
+    tech: ["Next.js", "AWS Lambda", "Zoho CRM", "Supabase"],
+  },
   {
     title: "Zoho CRM & Exotel Call Analytics Dashboard",
     subtitle: "Next.js 15, Supabase, Zoho CRM, Exotel REST API · 2026",
@@ -226,14 +234,6 @@ export const projects: Project[] = [
     tech: ["Next.js", "Node.js", "Supabase", "Zoom API"],
   },
   {
-    title: "Finance & Incentive Portal",
-    subtitle: "Next.js, AWS Lambda, Zoho CRM, Supabase · 2026",
-    description:
-      "Real-time financial and incentive tracking dashboard used by 100+ active users. Displays interactive graphs for team-wise performance, transaction-wise details, and integrates AWS Lambda functions to handle high-frequency calculations and secure RBAC access.",
-    image: "/images/finance_incentive_portal.webp",
-    tech: ["Next.js", "AWS Lambda", "Zoho CRM", "Supabase"],
-  },
-  {
     title: "Slot Booking System",
     subtitle: "Next.js, Supabase, Zoom API · 2026",
     description:
@@ -256,6 +256,16 @@ export const projects: Project[] = [
       "A secure, serverless video archiving and management system that automatically syncs Zoom cloud recordings to Cloudflare R2 storage and a Cloudflare D1 (SQLite) database via real-time webhooks and automated cron jobs. Features a responsive React dashboard for searching, filtering by Host Name, playing streamed videos directly, and downloading MP4 recordings without Zoom's default expiration limits.",
     image: "/images/evaluation_portal_dashboard.webp",
     tech: ["React.js", "Cloudflare Workers", "Cloudflare D1", "Cloudflare R2", "Zoom API"],
+  },
+  {
+    title: "Portfolio Website",
+    subtitle: "Next.js, TypeScript and Tailwind CSS",
+    description:
+      "Official portfolio showcasing skills, projects, and experience. Fully responsive and built with Next.js, TypeScript, and modern CSS.",
+    image: "/images/portfolio_site.webp",
+    liveUrl: "https://brahmanand-portfolio.vercel.app/",
+    githubUrl: "https://github.com/brahmanand09/My_Portfolio",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "YouTube Clone",
@@ -286,16 +296,6 @@ export const projects: Project[] = [
     liveUrl: "https://livecodeeditor.vercel.app/",
     githubUrl: "https://github.com/brahmanand09/Code_Editor",
     tech: ["JavaScript", "HTML", "CSS"],
-  },
-  {
-    title: "Portfolio Website",
-    subtitle: "Next.js, TypeScript and Tailwind CSS",
-    description:
-      "Official portfolio showcasing skills, projects, and experience. Fully responsive and built with Next.js, TypeScript, and modern CSS.",
-    image: "/images/portfolio_site.webp",
-    liveUrl: "https://brahmanand-portfolio.vercel.app/",
-    githubUrl: "https://github.com/brahmanand09/My_Portfolio",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Visualizing and Forecasting Stocks",
@@ -335,8 +335,8 @@ export const companyAchievements: CompanyAchievements[] = [
   {
     id: "sarrthi-ias",
     name: "Sarrthi IAS",
-    role: "Full-Stack Developer",
-    duration: "2024 - Present",
+    role: "Software Development Engineer - 1 (SDE-1)",
+    duration: "April 2026 - Present",
     logoText: "SI",
     achievements: [
       {
@@ -363,7 +363,7 @@ export const companyAchievements: CompanyAchievements[] = [
   },
   {
     id: "logiquecode",
-    name: "LogiqueCode",
+    name: "LogiqueCode LLP",
     role: "Software Engineer",
     duration: "Previous Experience",
     logoText: "LC",

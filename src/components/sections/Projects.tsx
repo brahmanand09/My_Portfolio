@@ -154,7 +154,7 @@ export function Projects() {
         >
           <span className="section-eyebrow">Portfolio</span>
           <h2 className="section-title text-3d mt-3">Featured Work</h2>
-          <p className="mt-4 max-w-2xl text-muted">
+          <p className="mt-4 text-muted">
             Professional and personal projects — from enterprise systems to interactive web
             applications.
           </p>

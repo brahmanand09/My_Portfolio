@@ -49,11 +49,11 @@
   }
 
   .section-block {
-    @apply relative isolate z-10 py-20 md:py-24;
+    @apply relative isolate z-10 pt-10 pb-16 md:pt-12 md:pb-20;
   }
 
   .section-block-alt {
-    @apply relative isolate z-10 border-y border-border-subtle bg-bg-soft/60 py-20 md:py-24;
+    @apply relative isolate z-10 border-y border-border-subtle bg-bg-soft/60 pt-10 pb-16 md:pt-12 md:pb-20;
   }
 
   .section-eyebrow {
